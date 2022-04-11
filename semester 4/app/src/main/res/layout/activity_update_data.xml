@@ -26,7 +26,7 @@
         android:id="@+id/new_nohp"
         android:textSize="15sp"
         android:hint="Nomor Handphone Baru"
-        android:inputType="textPersonName"/>
+        android:inputType="number"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

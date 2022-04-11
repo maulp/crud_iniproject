@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nomor Handphone"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
         <LinearLayout
             android:layout_width="match_parent"
