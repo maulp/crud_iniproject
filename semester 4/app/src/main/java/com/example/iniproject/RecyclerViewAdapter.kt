@@ -1,5 +1,6 @@
 package com.example.iniproject
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
@@ -11,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
 
 class RecyclerViewAdapter(private val listini_data: ArrayList<ini_data>, context: Context) :
     RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(){
@@ -36,6 +38,7 @@ class RecyclerViewAdapter(private val listini_data: ArrayList<ini_data>, context
         return ViewHolder(V)
     }
 
+    @SuppressLint("RecyclerView")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val Nama: String? = listini_data.get(position).nama
         val Alamat: String? = listini_data.get(position).alamat
@@ -55,6 +58,9 @@ class RecyclerViewAdapter(private val listini_data: ArrayList<ini_data>, context
                             bundle.putString("dataNama", listini_data[position].nama)
                             bundle.putString("dataAlamat", listini_data[position].alamat)
                             bundle.putString("dataNoHp", listini_data[position].no_hp)
+                            bundle.putString("jkel", listini_data[position].jkel)
+                            bundle.putString("datajml", listini_data[position].jml)
+//                            bundle.putString("makfav", listini_data[position].makfav)
                             bundle.putString("getPrimaryKey", listini_data[position].key)
                             val intent = Intent(view.context, UpdateData::class.java)
                             intent.putExtras(bundle)

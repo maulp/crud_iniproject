@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.tasks.OnCompleteListener
@@ -26,7 +27,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         show_data.setOnClickListener(this)
 
         auth = FirebaseAuth.getInstance()
+        setDataSpinnerJK()
+//        setDataSpinnerMF()
     }
+
+    private fun setDataSpinnerJK(){
+        val adapter = ArrayAdapter.createFromResource(this, R.array.JenisKelamin, android.R.layout.simple_spinner_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerJK.adapter = adapter
+    }
+
+//    private fun setDataSpinnerMF(){
+//        val adapter = ArrayAdapter.createFromResource(this, R.array.MakananFavorit, android.R.layout.simple_spinner_item)
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//        spinnerMF.adapter = adapter
+//    }
 
     private fun isEmpty(s: String): Boolean{
         return TextUtils.isEmpty(s)
@@ -41,20 +56,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val getNama: String = nama.getText().toString()
                 val getAlamat: String = alamat.getText().toString()
                 val getNoHp: String = no_hp.getText().toString()
+                val jkel: String = spinnerJK.selectedItem.toString()
+                val getjml: String = jml.getText().toString()
+//                val makfav: String = spinnerMF.selectedItem.toString()
 
                 val getReference: DatabaseReference
                 getReference = database.reference
 
-                if(isEmpty(getNama) || isEmpty(getAlamat) || isEmpty(getNoHp)){
+                if(isEmpty(getNama) || isEmpty(getAlamat) || isEmpty(getNoHp) || isEmpty(getjml)){
                     Toast.makeText(this@MainActivity, "Data tidak boleh ada yang kosong",
                     Toast.LENGTH_SHORT).show()
                 }else{
                     getReference.child("Admin").child(getUserID).child("iniData").push()
-                        .setValue(ini_data(getNama, getAlamat, getNoHp))
+                        .setValue(ini_data(getNama, getAlamat, getNoHp, jkel, getjml))
                         .addOnCompleteListener(this){
                             nama.setText("")
                             alamat.setText("")
                             no_hp.setText("")
+                            jml.setText("")
                             Toast.makeText(this@MainActivity, "Data Tersimpan", Toast.LENGTH_SHORT).show()
                         }
                 }

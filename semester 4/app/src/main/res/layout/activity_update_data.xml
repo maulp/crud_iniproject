@@ -9,6 +9,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:id="@+id/new_nama"
         android:textSize="15sp"
         android:hint="Nama Baru"
@@ -16,6 +18,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:id="@+id/new_alamat"
         android:textSize="15sp"
         android:hint="Alamat Baru"
@@ -23,13 +27,56 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:id="@+id/new_nohp"
         android:textSize="15sp"
         android:hint="Nomor Handphone Baru"
         android:inputType="number"/>
-    <Button
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Jenis Kelamin"-->
+<!--        android:textSize="20dp"/>-->
+<!--    <Spinner-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/newspinnerJK"/>-->
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="Varian"
+        android:textSize="15sp"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/newspinnerJK"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/new_jml"
+        android:textSize="15sp"
+        android:hint="Jumlah Pesanan"
+        android:inputType="number"/>
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="makanan favorit"-->
+<!--        android:textSize="20dp"/>-->
+<!--    <Spinner-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/newspinnerMF"/>-->
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:id="@+id/update"
         android:text="UPDATE"/>
 </LinearLayout>
